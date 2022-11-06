@@ -4,6 +4,7 @@
 
 # import library
 
+from pickle import TRUE
 import pandas as pd 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -47,7 +48,7 @@ print("\n")
 
 print("column name of dataset : ")
 print(df.columns)
-print("\n")
+print("\n") 
 
 # histogram chart
 df.hist()
@@ -57,7 +58,29 @@ df.hist()
 category1 = ["gender","race_ethnicity","Education","lunch","test_preparation_course"]
 
 
-# boxplot for all col
+# boxplot with gender  about scores
+print(df.boxplot(by='gender' , column=['reading_score'] , grid=TRUE))
+print(df.boxplot(by='gender' , column=['math_score'] , grid=TRUE))
+print(df.boxplot(by='gender' , column=['writing_score'] , grid=TRUE))
+
+# # box plot with race_ethnicity about scores
+
+print(df.boxplot(by='race_ethnicity' , column=['reading_score'] , grid=TRUE))
+print(df.boxplot(by='race_ethnicity' , column=['math_score'] , grid=TRUE))
+print(df.boxplot(by='race_ethnicity' , column=['writing_score'] , grid=TRUE))
+
+# box plot with test_preparation_course about scores
+print(df.boxplot(by='test_preparation_course' , column=['reading_score'] , grid=TRUE))
+print(df.boxplot(by='test_preparation_course' , column=['math_score'] , grid=TRUE))
+print(df.boxplot(by='test_preparation_course' , column=['writing_score'] , grid=TRUE))
+
+# box plot with Education about scores
+
+print(df.boxplot(by='Education' , column=['reading_score'] , grid=TRUE))
+print(df.boxplot(by='Education' , column=['math_score'] , grid=TRUE))
+print(df.boxplot(by='Education' , column=['writing_score'] , grid=TRUE))
+
+# barplot for all col
 def bar_plot(variable):
     var = df[variable]
     varValue = var.value_counts()
